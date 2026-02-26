@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Azkhanza Sayang 🐾</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="overlay" id="overlay">
+        <div class="opening-card">
+            <div class="cat-peek">🐱</div>
+            <h2>Ada pesan untuk Azkhanza... ✨</h2>
+            <button onclick="startWeb()">Buka Pakai Cinta ❤️</button>
+        </div>
+    </div>
+
+    <div class="bg-decor">🌸</div>
+    <div class="bg-decor2">✨</div>
+
+    <div class="container" id="page1">
+        <div class="cat-wrapper">
+            <div class="cat-main">🐱</div>
+            <div class="paw-left">🐾</div>
+            <div class="paw-right">🐾</div>
+        </div>
+
+        <h1>Halo, Azkhanza Tsabita Humaira ✨</h1>
+
+        <div class="content-box-pink">
+            <p class="text-message">
+                Zabita sayang, aku mau minta maaf <strong>banget</strong> atas segala kesalahanku dari awal kita pacaran tanggal <strong>12-01-26</strong> sampai detik ini. Maafin si kucing bandel ini ya? 🥺
+            </p>
+        </div>
+
+        <div class="content-box-white">
+            <p class="beauty-text">
+                Tapi kamu harus tahu... <br>
+                <span>Kamu itu cantik banget!</span> ✨ <br>
+                Kecantikan kamu itu bikin duniaku lebih berwarna.
+            </p>
+        </div>
+
+        <button class="btn-next" onclick="nextPage()">Lihat Momen Kita 📸</button>
+    </div>
+
+    <div class="container hidden" id="page2">
+        <h2 class="gallery-title">Momen Bahagia Kita 💖</h2>
+        <div class="gallery">
+            <div class="photo-frame polaroid1">
+                <img src="qwert1.jpeg" alt="Foto Kita 1">
+                <p>Momen Lucu ✨</p>
+            </div>
+            <div class="photo-frame polaroid2">
+                <img src="qwert2.jpeg" alt="Foto Kita 2">
+                <p>Kesayangan Aku ❤️</p>
+            </div>
+            <div class="photo-frame polaroid1">
+                <img src="qwert3.jpeg" alt="Foto Kita 3">
+                <p>Si Paling Cantik 👑</p>
+            </div>
+        </div>
+        <button class="btn-back" onclick="prevPage()">Kembali 🐾</button>
+    </div>
+
+    <script>
+        function startWeb() {
+            document.getElementById('overlay').classList.add('fade-out');
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'none';
+                createFalling();
+            }, 500);
+        }
+
+        function nextPage() {
+            document.getElementById('page1').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('page1').classList.add('hidden');
+                document.getElementById('page2').classList.remove('hidden');
+                document.getElementById('page2').style.opacity = '1';
+            }, 300);
+        }
+
+        function prevPage() {
+            document.getElementById('page2').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('page2').classList.add('hidden');
+                document.getElementById('page1').classList.remove('hidden');
+                document.getElementById('page1').style.opacity = '1';
+            }, 300);
+        }
+
+        function createFalling() {
+            const symbols = ['🌸', '❤️', '🐾', '✨', '💖', '☁️'];
+            for (let i = 0; i < 40; i++) {
+                let div = document.createElement('div');
+                div.className = 'falling';
+                div.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                div.style.left = Math.random() * 100 + 'vw';
+                div.style.animationDuration = Math.random() * 3 + 2 + 's';
+                div.style.fontSize = Math.random() * 20 + 10 + 'px';
+                document.body.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
